@@ -1,0 +1,27 @@
+{# Renders the publish or unpublish button #}
+
+{% resource 'publisher/main.js' %}
+{% if h.check_access('package_publish',data_dict={"id":package.id, "private":False}) and package.private == True %}
+{% set root_path = h.url_for('api.action', ver=3, logic_function='package_publish',
+        _external=True) %}
+
+    <button type="button" id="publish"
+     class="btn btn-warning"
+     data-module="publisher_main"
+     data-module-url="{{root_path}}"
+     data-module-id="{{ package.id }}"
+     data-module-tag="#publish"
+     data-module-isprivate=False> <i class="fa fa-eye"></i> Publish</button>
+
+{% elif h.check_access('package_unpublish',data_dict={"id":package.id, "private":True}) and package.private == False %}
+{% set root_path = h.url_for('api.action', ver=3, logic_function='package_unpublish',
+        _external=True) %}
+    <button id="unpublish"
+     type="button" class="btn btn-danger"
+     data-module="publisher_main"
+     data-module-id="{{ package.id }}"
+     data-module-tag="#unpublish"
+     data-module-url="{{root_path}}"
+     data-module-isprivate=True> <i class="fa fa-eye-slash"></i> Unpublish</button>
+
+{% endif %}

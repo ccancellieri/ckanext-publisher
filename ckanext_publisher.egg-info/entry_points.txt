@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        publisher=ckanext.publisher.plugin:PublisherPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    

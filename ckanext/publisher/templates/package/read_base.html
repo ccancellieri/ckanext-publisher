@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+
+{% block content_action %}
+    {{ super() }}
+
+{% snippet "package/snippets/read_base_snippet.html", package=pkg %}
+{% endblock %}
+

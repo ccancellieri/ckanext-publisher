@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+     {% snippet 'snippets/organization.html', organization=organization %}
+    <div class="module module-narrow module-shallow">
+        <h2 class="module-heading">
+            <i class="fa fa-lg fa-info-circle"></i>
+            {{ _('What are roles?') }}
+        </h2>
+        <div class="module-content">
+            {% trans %}
+                <p><strong>Admin:</strong> Can <strong>add/edit/delete</strong> and <strong>publish</strong> datasets, as well as <strong>manage organization members</strong>.</p>
+                <p><strong>Editor:</strong> Can <strong>add/edit</strong> datasets, but <strong>not publish</strong>.</p>
+                <p><strong>Member:</strong> Can view the organization's private datasets, but not add/edit datasets.</p>
+            {% endtrans %}
+        </div>
+{% endblock %}
