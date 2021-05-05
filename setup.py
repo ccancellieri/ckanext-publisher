@@ -15,13 +15,13 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.0.1',
+    version='0.9.0',
 
     description='''Simple publisher plugin to manage dataset visibility''',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/ccancellieri/ckanext-publisher',
+    url='https://bitbucket.org/cioapps/ckanext-publisher',
 
     # Author details
     author='''Carlo Cancellieri''',
