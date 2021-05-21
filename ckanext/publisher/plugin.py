@@ -1,15 +1,11 @@
 # encoding: utf-8
 from ckan.lib.plugins import DefaultPermissionLabels
-import ckan.plugins.toolkit as get_action
 import ckan.plugins.toolkit as toolkit
 import logging
 import ckan.plugins as p
 import ckan.logic as logic
-import ckan.model as model
 import ckanext.publisher.logic.action as action
 import ckanext.publisher.logic.auth as auth
-from ckan.common import _, request
-from ckan.model.core import State
 _check_access = logic.check_access
 _get_action = logic.get_action
 log = logging.getLogger(__name__)

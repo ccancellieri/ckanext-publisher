@@ -1,33 +1,11 @@
 # encoding: utf-8
-
 import logging
-import datetime
-import time
-import json
-
-from ckan.common import config
-import ckan.common as converters
-import six
-from six import text_type
-
-import ckan.lib.helpers as h
 import ckan.plugins as plugins
 import ckan.logic as logic
 from ckanext.publisher.logic.auth import can_publish_in_org
-import ckan.logic.schema as schema_
-import ckan.lib.dictization as dictization
-import ckan.lib.dictization.model_dictize as model_dictize
-import ckan.lib.dictization.model_save as model_save
 import ckan.lib.navl.dictization_functions
-import ckan.lib.navl.validators as validators
-import ckan.lib.plugins as lib_plugins
-import ckan.lib.email_notifications as email_notifications
-import ckan.lib.search as search
-import ckan.lib.uploader as uploader
 import ckan.lib.datapreview
-import ckan.lib.app_globals as app_globals
 from ckan.common import _, request
-import inspect as inspect
 log = logging.getLogger(__name__)
 
 # Define some shortcuts
