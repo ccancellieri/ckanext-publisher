@@ -7,8 +7,14 @@ setup.py
 ckanext/__init__.py
 ckanext/publisher/__init__.py
 ckanext/publisher/plugin.py
-ckanext/publisher/tests/__init__.py
-ckanext/publisher/tests/test_plugin.py
+ckanext/publisher/fanstatic/main.js
+ckanext/publisher/logic/__init__.py
+ckanext/publisher/logic/action.py
+ckanext/publisher/logic/auth.py
+ckanext/publisher/templates/organization/member_new.html
+ckanext/publisher/templates/package/read_base.html
+ckanext/publisher/templates/package/snippets/package_basic_fields.html
+ckanext/publisher/templates/package/snippets/read_base_snippet.html
 ckanext_publisher.egg-info/PKG-INFO
 ckanext_publisher.egg-info/SOURCES.txt
 ckanext_publisher.egg-info/dependency_links.txt

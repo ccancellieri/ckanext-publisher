@@ -1,12 +1,12 @@
-from exceptions import Exception
-
+try:
+    from exceptions import Exception
+except ImportError:
+    pass
 import ckan.logic as logic
-import ckan.plugins as p
 import ckan.authz as authz
-import ckan.logic.auth as logic_auth
-# from ckan.logic.converters import convert_group_name_or_id_to_id
-
-from ckan.common import OrderedDict, _, c
+import ckan.plugins.toolkit as t
+_ = t._
+c = t.c
 import ckan.model as model
 
 ValidationError = logic.ValidationError
