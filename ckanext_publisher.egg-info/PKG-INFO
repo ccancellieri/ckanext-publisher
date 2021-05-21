@@ -1,8 +1,8 @@
 Metadata-Version: 1.1
 Name: ckanext-publisher
-Version: 0.0.1
+Version: 0.9.0
 Summary: Simple publisher plugin to manage dataset visibility
-Home-page: https://github.com/ccancellieri/ckanext-publisher
+Home-page: https://bitbucket.org/cioapps/ckanext-publisher
 Author: Carlo Cancellieri
 Author-email: ccancellieri@hotmail.com
 License: AGPL
@@ -40,10 +40,36 @@ Description: .. You should enable this project on travis-ci.org and coveralls.io
         ckanext-publisher
         =============
         
-        .. Put a description of your extension here:
-           What does it do? What features does it have?
-           Consider including some screenshots or embedding a video!
+        Let you to manage who is able to publish datasets
+        into an organization.
         
+        Member
+        Editor
+        Admin
+        
+        A member is a registered user of the platform and can:
+        --
+        
+        - browse the platform
+        - view all published and unpublished datasets
+        
+        An editor is a registered user of the platform and can:
+        --
+        
+        - view all published datasets
+        - view unpublished datasets in assigned organization
+        - **create, modify, delete or move the datasets in owned organizations**
+        - **cannot publish or unpublish dataset**
+        
+        An admin is a registered user of the platform and can:
+        --
+        
+        - view all published datasets
+        - view unpublished datasets in assigned organization
+        - create, modify, delete or move the datasets between owned organizations
+        - **create a public dataset**
+        - **manage the datasets visibility by publisher or unpublisher it.**
+        manage the organization by adding existing users (as Editor or Admin)
         
         ------------
         Requirements
@@ -84,12 +110,11 @@ Description: .. You should enable this project on travis-ci.org and coveralls.io
         Config Settings
         ---------------
         
-        Document any optional config settings here. For example::
         
-            # The minimum number of hours to wait before re-checking a resource
-            # (optional, default: 24).
-            ckanext.publisher.some_setting = some_default_value
+           ckan.auth.create_unowned_dataset = false
+           ckan.auth.create_dataset_if_not_in_organization = false
         
+           ckan.plugins = publisher ...
         
         ------------------------
         Development Installation
