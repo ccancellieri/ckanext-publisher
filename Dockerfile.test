@@ -1,6 +1,6 @@
 # See CKAN docs on installation from Docker Compose on usage
 FROM ubuntu:focal-20210119
-MAINTAINER Open Knowledge
+MAINTAINER Carlo Cancellieri
 
 
 # Set timezone
@@ -63,8 +63,8 @@ ENV PATH=${CKAN_VENV}/bin:${PATH}
 
 # Setup CKAN
 ADD ./ckan $CKAN_VENV/src/ckan/
-# ADD . $CKAN_VENV/src/ckanext-${PLUGIN}
-ADD . $CKAN_VENV/src/${PLUGIN}
+ADD . $CKAN_VENV/src/ckanext-${PLUGIN}
+# ADD . $CKAN_VENV/src/${PLUGIN}
 
 # RUN ls -la $CKAN_VENV/src/ckan
 # RUN ls -la $CKAN_VENV/src/${PLUGIN}
@@ -83,8 +83,8 @@ ENTRYPOINT ["/ckan-entrypoint.sh"]
 RUN ckan-pip3 install --upgrade --no-cache-dir -r $CKAN_VENV/src/ckan/dev-requirements.txt && \
     ckan-pip3 install --upgrade --no-cache-dir pytest-ckan
 
-# ENV RUN_TEST $CKAN_VENV/src/ckanext-$PLUGIN/run-test.sh
-ENV RUN_TEST $CKAN_VENV/src/$PLUGIN/run-test.sh
+ENV RUN_TEST $CKAN_VENV/src/ckanext-$PLUGIN/run-test.sh
+# ENV RUN_TEST $CKAN_VENV/src/$PLUGIN/run-test.sh
 
 # Arg is not persistent, let's pass PLUGIN to docker run
 ENV PLUGIN=${PLUGIN}

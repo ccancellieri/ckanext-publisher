@@ -18,8 +18,9 @@
      - step:
           name: ckan-test
           script:
-              # - export PLUGIN="ckanext-publisher"
-              - export PLUGIN=$BITBUCKT_REPO_SLUG
+              - export PLUGIN="publisher"
+              # - export PLUGIN=$BITBUCKT_REPO_SLUG
+
               - git clone https://github.com/ckan/ckan.git
               - cd ckan
               # - git checkout tags/ckan-2.8.6
