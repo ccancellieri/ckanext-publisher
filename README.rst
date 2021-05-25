@@ -1,191 +1,105 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org/ccancellieri/ckanext-publisher.svg?branch=master
-    :target: https://travis-ci.org/ccancellieri/ckanext-publisher
-
-.. image:: https://coveralls.io/repos/ccancellieri/ckanext-publisher/badge.svg
-  :target: https://coveralls.io/r/ccancellieri/ckanext-publisher
-
-.. image:: https://pypip.in/download/ckanext-publisher/badge.svg
-    :target: https://pypi.python.org/pypi//ckanext-publisher/
-    :alt: Downloads
-
-.. image:: https://pypip.in/version/ckanext-publisher/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-publisher/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/ckanext-publisher/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-publisher/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/status/ckanext-publisher/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-publisher/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/ckanext-publisher/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-publisher/
-    :alt: License
-
-=============
 ckanext-publisher
-=============
+=====================================
 
 Let you to manage who is able to publish datasets
 into an organization.
 
-Member
-Editor
-Admin
+``Member``
+``Editor``
+``Admin``
 
-A member is a registered user of the platform and can:
---
+.. image:: docs/img/private_missing_dataset.png
+    :alt: Dataset editing private
 
-- browse the platform
-- view all published and unpublished datasets
+.. image:: docs/img/publish_dataset.png
+    :alt: Publish dataset
 
-An editor is a registered user of the platform and can:
---
+.. image:: docs/img/unpublish_dataset.png
+    :alt: dataset editing private
 
-- view all published datasets
-- view unpublished datasets in assigned organization
-- **create, modify, delete or move the datasets in owned organizations**
-- **cannot publish or unpublish dataset**
 
-An admin is a registered user of the platform and can:
---
+1. A member is a registered user of the platform and can:
+    * browse the platform
+    * view all published and unpublished datasets
 
-- view all published datasets
-- view unpublished datasets in assigned organization
-- create, modify, delete or move the datasets between owned organizations
-- **create a public dataset**
-- **manage the datasets visibility by publisher or unpublisher it.**
-manage the organization by adding existing users (as Editor or Admin)
+2. An editor is a registered user of the platform and can:
+    * view all published datasets
+    * view unpublished datasets in assigned organization
+    * **create, modify, delete or move the datasets in owned organizations**
+    * **cannot publish or unpublish dataset**
 
-------------
+3. An admin is a registered user of the platform and can:
+    * view all published datasets
+    * view unpublished datasets in assigned organization
+    * create, modify, delete or move the datasets between owned organizations
+    * **create a public dataset**
+    * **manage the datasets visibility by publisher or unpublisher it.** manage the organization by adding existing users (as Editor or Admin)
+
+
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+Before installing ckanext-publisher, make sure that you have installed the following:
 
+* CKAN 2.8+
 
-------------
 Installation
 ------------
 
-.. Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
-
-To install ckanext-publisher:
-
+To install ckanext-publisher
 1. Activate your CKAN virtual environment, for example::
 
      . /usr/lib/ckan/default/bin/activate
 
 2. Install the ckanext-publisher Python package into your virtual environment::
 
-     pip install ckanext-publisher
+     git clone https://bitbucket.org/cioapps/ckanext-publisher.git
 
-3. Add ``publisher`` to the ``ckan.plugins`` setting in your CKAN
+3. Install the publisher dependencies::
+
+     python setup.py develop
+
+
+4. Add ``ckanext-publisher`` to the ``ckan.plugins`` setting in your CKAN
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+5. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
      sudo service apache2 reload
 
 
----------------
-Config Settings
----------------
+
+Configuration
+-------------
+
+You must make sure that the following is set in your CKAN config::
+
+    ckan.auth.create_unowned_dataset = false
+    ckan.auth.create_dataset_if_not_in_organization = false
 
 
-   ckan.auth.create_unowned_dataset = false
-   ckan.auth.create_dataset_if_not_in_organization = false
+Development
+-----------
 
-   ckan.plugins = publisher ...
+To install ckanext-publisher for development, activate your CKAN virtualenv and do::
 
-------------------------
-Development Installation
-------------------------
-
-To install ckanext-publisher for development, activate your CKAN virtualenv and
-do::
-
-    git clone https://github.com/ccancellieri/ckanext-publisher.git
+    git clone https://bitbucket.org/cioapps/ckanext-publisher.git
     cd ckanext-publisher
     python setup.py develop
     pip install -r dev-requirements.txt
 
+Tests
+-----
 
------------------
-Running the Tests
------------------
+To run the tests:
 
-To run the tests, do::
+1. Activate your CKAN virtual environment, for example::
 
-    nosetests --nologcapture --with-pylons=test.ini
-
-To run the tests and produce a coverage report, first make sure you have
-coverage installed in your virtualenv (``pip install coverage``) then run::
-
-    nosetests --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.publisher --cover-inclusive --cover-erase --cover-tests
+     . /usr/lib/ckan/default/bin/activate
 
 
----------------------------------
-Registering ckanext-publisher on PyPI
----------------------------------
+2. From the CKAN root directory (not the extension root) do::
 
-ckanext-publisher should be availabe on PyPI as
-https://pypi.python.org/pypi/ckanext-publisher. If that link doesn't work, then
-you can register the project on PyPI for the first time by following these
-steps:
+    pytest --ckan-ini=test.ini ckanext/iauthfunctions/tests
 
-1. Create a source distribution of the project::
-
-     python setup.py sdist
-
-2. Register the project::
-
-     python setup.py register
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the first release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.1 then do::
-
-       git tag 0.0.1
-       git push --tags
-
-
-----------------------------------------
-Releasing a New Version of ckanext-publisher
-----------------------------------------
-
-ckanext-publisher is availabe on PyPI as https://pypi.python.org/pypi/ckanext-publisher.
-To publish a new version to PyPI follow these steps:
-
-1. Update the version number in the ``setup.py`` file.
-   See `PEP 440 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-   for how to choose version numbers.
-
-2. Create a source distribution of the new version::
-
-     python setup.py sdist
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the new release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.2 then do::
-
-       git tag 0.0.2
-       git push --tags
