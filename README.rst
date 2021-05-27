@@ -1,21 +1,42 @@
 ckanext-publisher
 =====================================
 
-Let you to manage who is able to publish datasets
-into an organization.
+|
+|
 
-``Member``
-``Editor``
-``Admin``
+**ckanext-publisher** Ckanext-publisher plugin facilitate the user to publish metadata by default private.
+By not use of the plugin there is filed visibility where user set manually the option of  **public** or **private**.
 
-.. image:: docs/img/private_missing_dataset.png
+|
+|
+
+**Image Below**: The plugin removes the visibility field so that it can only be set by an **admin**.
+
+.. image:: docs/img/private_field.jpg
     :alt: Dataset editing private
 
-.. image:: docs/img/publish_dataset.png
+|
+|
+
+**In the image below**: By using the plugin the metadata published is set to **private** automatically.
+
+.. image:: docs/img/package_publish.jpg
     :alt: Publish dataset
 
-.. image:: docs/img/unpublish_dataset.png
+|
+|
+
+**In the image below**: If you are an admin you can set the visibility of the metadata either **public** or **private**.
+
+.. image:: docs/img/package_unpublish.jpg
     :alt: dataset editing private
+
+|
+|
+
+**Member**
+**Editor**
+**Admin**
 
 
 1. A member is a registered user of the platform and can:
@@ -35,6 +56,7 @@ into an organization.
     * **create a public dataset**
     * **manage the datasets visibility by publisher or unpublisher it.** manage the organization by adding existing users (as Editor or Admin)
 
+|
 
 Requirements
 ------------
@@ -43,28 +65,26 @@ Before installing ckanext-publisher, make sure that you have installed the follo
 
 * CKAN 2.8+
 
+
 Installation
 ------------
 
-To install ckanext-publisher
+To install ckanext-publisher:
+
 1. Activate your CKAN virtual environment, for example::
 
      . /usr/lib/ckan/default/bin/activate
 
 2. Install the ckanext-publisher Python package into your virtual environment::
 
-     git clone https://bitbucket.org/cioapps/ckanext-publisher.git
-
-3. Install the publisher dependencies::
-
-     python setup.py develop
+     pip install ckanext-publisher
 
 
-4. Add ``ckanext-publisher`` to the ``ckan.plugins`` setting in your CKAN
+3. Add ``ckanext-publisher`` to the ``ckan.plugins`` setting in your CKAN
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-5. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
      sudo service apache2 reload
 
@@ -77,6 +97,7 @@ You must make sure that the following is set in your CKAN config::
 
     ckan.auth.create_unowned_dataset = false
     ckan.auth.create_dataset_if_not_in_organization = false
+    ckan.plugins = publisher ...
 
 
 Development
@@ -87,7 +108,6 @@ To install ckanext-publisher for development, activate your CKAN virtualenv and 
     git clone https://bitbucket.org/cioapps/ckanext-publisher.git
     cd ckanext-publisher
     python setup.py develop
-    pip install -r dev-requirements.txt
 
 Tests
 -----
@@ -101,5 +121,5 @@ To run the tests:
 
 2. From the CKAN root directory (not the extension root) do::
 
-    pytest --ckan-ini=test.ini ckanext/iauthfunctions/tests
+    pytest --ckan-ini=test.ini ckanext/publisher/tests
 
