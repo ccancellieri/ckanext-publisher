@@ -4,8 +4,9 @@ ckanext-publisher
 |
 |
 
-**ckanext-publisher** Ckanext-publisher plugin facilitate the user to publish metadata by default private.
-By not use of the plugin there is filed visibility where user set manually the option of  **public** or **private**.
+**ckanext-publisher** plugin facilitate the user to publish metadata by default private.
+
+By not use of the plugin there is field visibility where user set manually the option of  **public** or **private**.
 
 |
 |
@@ -18,7 +19,7 @@ By not use of the plugin there is filed visibility where user set manually the o
 |
 |
 
-**In the image below**: By using the plugin the metadata published is set to **private** automatically.
+**In the image below**: By using the plugin the metadata created is set to **private** automatically.
 
 .. image:: docs/img/package_publish.jpg
     :alt: Publish dataset
