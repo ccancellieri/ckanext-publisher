@@ -6,7 +6,7 @@ ckanext-publisher
 
 With the default CKAN Installation, metadata records have a dropdown field called **visibility** which allows metadata creators to choose either to make the metadata **public or private**. This makes it difficult for accountability as every metadata creator can easily create metadata and make it public.
 
-The **ckanext-publisher** plugin removes the **visibility** field from the metadata record, replaced by a **publish/unpublish** button after the record is created. The plugin allows only users with **Admin role** in the organisation to make the metadata record **public or private**.
+The **ckanext-publisher** plugin removes the **visibility** field from the metadata record, replaces it with a **publish/unpublish** button after the record is created. The plugin allows only users with **Admin role** in the organisation to make the metadata record **public or private**.
 
 
 |
