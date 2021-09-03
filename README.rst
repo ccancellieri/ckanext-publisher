@@ -16,6 +16,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/private_field.jpg
     :alt: Dataset editing private
+    :height: 200px
+    :width: 400px
 
 |
 |
@@ -24,6 +26,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/package_publish.jpg
     :alt: Publish dataset
+    :height: 200px
+    :width: 400px
 
 |
 |
@@ -32,6 +36,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/package_unpublish.jpg
     :alt: dataset editing private
+    :height: 200px
+    :width: 400px
 
 |
 |
@@ -42,9 +48,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 
 1. A member is a registered user of the platform and can:
-    * browse the platform
-    * view all published and unpublished datasets of an organization is a member of but cannot modify
-    * view all public datasets
+    * view all public datasets on the platform
+    * view all unpublished datasets of an organization is a member of but cannot view unpublished datasets of an organization is not a member of
 
 2. An editor is a registered user of the platform and can:
     * view all published datasets
