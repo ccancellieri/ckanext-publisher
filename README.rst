@@ -16,8 +16,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/private_field.jpg
     :alt: Dataset editing private
-    :height: 200px
-    :width: 400px
+    :height: 100px
+    :width: 200px
 
 |
 |
@@ -26,8 +26,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/package_publish.jpg
     :alt: Publish dataset
-    :height: 200px
-    :width: 400px
+    :height: 100px
+    :width: 200px
 
 |
 |
@@ -36,8 +36,8 @@ The **ckanext-publisher** plugin removes the **visibility** field from the metad
 
 .. image:: docs/img/package_unpublish.jpg
     :alt: dataset editing private
-    :height: 200px
-    :width: 400px
+    :height: 100px
+    :width: 200px
 
 |
 |
