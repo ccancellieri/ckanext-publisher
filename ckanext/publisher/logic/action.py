@@ -57,10 +57,24 @@ def package_patch(next_auth, context, data_dict):
 
 def package_publish(context, data_dict):
     _check_access('package_publish', context, data_dict)
-    return ckan.logic.action.patch.package_patch(context,data_dict)
+    try:
+        return ckan.logic.action.patch.package_patch(context,data_dict)
+    except Exception as e:
+        import ckan.lib.helpers as h
+        from ckan.plugins import toolkit
+        # could be a validation error
+        if not h.are_there_flash_messages():
+            h.flash_error(toolkit._('Unable to proceed: {}'.format(str(e))))
 
 def package_unpublish(context, data_dict):
     _check_access('package_unpublish', context, data_dict)
-    return ckan.logic.action.patch.package_patch(context, data_dict)
+    try:
+        return ckan.logic.action.patch.package_patch(context, data_dict)
+    except Exception as e:
+        import ckan.lib.helpers as h
+        from ckan.plugins import toolkit
+        # could be a validation error
+        if not h.are_there_flash_messages():
+            h.flash_error(toolkit._('Unable to proceed: {}'.format(str(e))))
 
 
